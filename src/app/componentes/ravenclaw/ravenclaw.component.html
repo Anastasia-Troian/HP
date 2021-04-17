@@ -1,0 +1,55 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs b-c">
+  <li ngbNavItem>
+    <a ngbNavLink [routerLink]="['']">Characters</a>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink [routerLink]="['/students']">Student</a>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink [routerLink]="['/staff']">Staff</a>
+  </li>
+  <li ngbNavItem>
+    <div class="row">
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Home</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem [routerLink]="['/gryffindor']">Gryffindor</button>
+            <button ngbDropdownItem [routerLink]="['/slytherin']">Slytherin</button>
+            <button ngbDropdownItem [routerLink]="['/hufflepuff']">Hufflepuff</button>
+            <button ngbDropdownItem [routerLink]="['/ravenclaw']">Ravenclaw</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>
+<div class="card-group ml-5" style=" display: flex; flex-direction: row;">
+<div *ngFor="let c of students" >
+  <div class="flip-card mx-4 my-2">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="{{c.image}}" alt="Avatar" style="width:300px;height:300px;">
+        <h3>{{c.name}}</h3>
+      </div>
+      <div class="flip-card-back">
+        <p>{{c.species}}</p>
+      <p>{{c.gender}}</p>
+      <p>{{c.house}}</p>
+      <hr />
+      <p>Birth: {{c.dateOfBirth}}</p>
+      <hr />
+      <p>{{c.ancestry}}</p>
+      <hr />
+      <p>{{c.eyeColour}}</p>
+      <p>{{c.hairColour}}</p>
+      <hr />
+      <p>{{c.patronus}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
